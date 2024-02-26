@@ -162,84 +162,84 @@ function ChiaSheng_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'ChiaSheng_scripts' );
 
-function ChaSheng_admin_enqueue_scripts(){
-	wp_enqueue_style('ChaSheng-admin-style', get_template_directory_uri() . '/inc/admin/assets/css/admin.css');
-	wp_enqueue_script( 'ChaSheng-admin-script', get_template_directory_uri() . '/inc/admin/assets/js/ChaSheng-admin-script.js', array( 'jquery' ), '', true );
-    wp_localize_script( 'ChaSheng-admin-script', 'ChaSheng_ajax_object',
+function ChiaSheng_admin_enqueue_scripts(){
+	wp_enqueue_style('ChiaSheng-admin-style', get_template_directory_uri() . '/inc/admin/assets/css/admin.css');
+	wp_enqueue_script( 'ChiaSheng-admin-script', get_template_directory_uri() . '/inc/admin/assets/js/ChiaSheng-admin-script.js', array( 'jquery' ), '', true );
+    wp_localize_script( 'ChiaSheng-admin-script', 'ChiaSheng_ajax_object',
         array( 'ajax_url' => admin_url( 'admin-ajax.php' ) )
     );
 }
-add_action( 'admin_enqueue_scripts', 'ChaSheng_admin_enqueue_scripts' );
+add_action( 'admin_enqueue_scripts', 'ChiaSheng_admin_enqueue_scripts' );
 
 /**
  * Enqueue User Custom styles.
  */
-if( ! function_exists( 'ChaSheng_user_custom_style' ) ):
-    function ChaSheng_user_custom_style() {
+if( ! function_exists( 'ChiaSheng_user_custom_style' ) ):
+    function ChiaSheng_user_custom_style() {
 
-		$ChaSheng_print_style = '';
+		$ChiaSheng_print_style = '';
 		
 		/*=========================================
-		ChaSheng Page Title
+		ChiaSheng Page Title
 		=========================================*/
-		$ChaSheng_print_style   .=  ChaSheng_customizer_value( 'ChaSheng_breadcrumb_title_size', '.page-header h1', array( 'font-size' ), array( 30, 30, 30 ), 'px' );
-		$ChaSheng_print_style   .=  ChaSheng_customizer_value( 'ChaSheng_breadcrumb_content_size', '.page-header .breadcrumb li', array( 'font-size' ), array( 15, 15, 15 ), 'px' );
+		$ChiaSheng_print_style   .=  ChiaSheng_customizer_value( 'ChiaSheng_breadcrumb_title_size', '.page-header h1', array( 'font-size' ), array( 30, 30, 30 ), 'px' );
+		$ChiaSheng_print_style   .=  ChiaSheng_customizer_value( 'ChiaSheng_breadcrumb_content_size', '.page-header .breadcrumb li', array( 'font-size' ), array( 15, 15, 15 ), 'px' );
 
 		/*=========================================
-		ChaSheng Logo Size
+		ChiaSheng Logo Size
 		=========================================*/
-		$ChaSheng_print_style   .= ChaSheng_customizer_value( 'hdr_logo_size', '.site--logo img', array( 'max-width' ), array( 150, 150, 150 ), 'px !important' );
-		$ChaSheng_print_style   .= ChaSheng_customizer_value( 'hdr_site_title_size', '.site--logo .site--title', array( 'font-size' ), array( 55, 55, 55 ), 'px !important' );
-		$ChaSheng_print_style   .= ChaSheng_customizer_value( 'hdr_site_desc_size', '.site--logo .site--description', array( 'font-size' ), array( 16, 16, 16 ), 'px !important' );
+		$ChiaSheng_print_style   .= ChiaSheng_customizer_value( 'hdr_logo_size', '.site--logo img', array( 'max-width' ), array( 150, 150, 150 ), 'px !important' );
+		$ChiaSheng_print_style   .= ChiaSheng_customizer_value( 'hdr_site_title_size', '.site--logo .site--title', array( 'font-size' ), array( 55, 55, 55 ), 'px !important' );
+		$ChiaSheng_print_style   .= ChiaSheng_customizer_value( 'hdr_site_desc_size', '.site--logo .site--description', array( 'font-size' ), array( 16, 16, 16 ), 'px !important' );
 
-		$ChaSheng_site_container_width = get_theme_mod('ChaSheng_site_container_width','1340');
-		if($ChaSheng_site_container_width >=768 && $ChaSheng_site_container_width <=2000){
-			$ChaSheng_print_style .=".dt-container-md,.dt__slider-main .owl-dots {
-					max-width: " .esc_attr($ChaSheng_site_container_width). "px;
+		$ChiaSheng_site_container_width = get_theme_mod('ChiaSheng_site_container_width','1340');
+		if($ChiaSheng_site_container_width >=768 && $ChiaSheng_site_container_width <=2000){
+			$ChiaSheng_print_style .=".dt-container-md,.dt__slider-main .owl-dots {
+					max-width: " .esc_attr($ChiaSheng_site_container_width). "px;
 				}\n";
 		}
 
 		/**
 		 *  Sidebar Width
 		 */
-		$ChaSheng_sidebar_width = get_theme_mod('ChaSheng_sidebar_width',33);
-		if($ChaSheng_sidebar_width !== '') { 
-			$ChaSheng_primary_width   = absint( 100 - $ChaSheng_sidebar_width );
-			$ChaSheng_print_style .="	@media (min-width: 992px) {#dt-main {
-				max-width:" .esc_attr($ChaSheng_primary_width). "%;
-				flex-basis:" .esc_attr($ChaSheng_primary_width). "%;
+		$ChiaSheng_sidebar_width = get_theme_mod('ChiaSheng_sidebar_width',33);
+		if($ChiaSheng_sidebar_width !== '') { 
+			$ChiaSheng_primary_width   = absint( 100 - $ChiaSheng_sidebar_width );
+			$ChiaSheng_print_style .="	@media (min-width: 992px) {#dt-main {
+				max-width:" .esc_attr($ChiaSheng_primary_width). "%;
+				flex-basis:" .esc_attr($ChiaSheng_primary_width). "%;
 			}\n";
-			$ChaSheng_print_style .="#dt-sidebar {
-				max-width:" .esc_attr($ChaSheng_sidebar_width). "%;
-				flex-basis:" .esc_attr($ChaSheng_sidebar_width). "%;
+			$ChiaSheng_print_style .="#dt-sidebar {
+				max-width:" .esc_attr($ChiaSheng_sidebar_width). "%;
+				flex-basis:" .esc_attr($ChiaSheng_sidebar_width). "%;
 			}}\n";
 		}
-		$ChaSheng_print_style   .= ChaSheng_customizer_value( 'ChaSheng_widget_ttl_size', '.widget-title', array( 'font-size' ), array( 24, 24, 24 ), 'px' );
+		$ChiaSheng_print_style   .= ChiaSheng_customizer_value( 'ChiaSheng_widget_ttl_size', '.widget-title', array( 'font-size' ), array( 24, 24, 24 ), 'px' );
 
 		/**
 		 *  Typography Body
 		 */
-		$ChaSheng_body_font_weight_option	 	= get_theme_mod('ChaSheng_body_font_weight_option','inherit');
-		$ChaSheng_body_text_transform_option	 	= get_theme_mod('ChaSheng_body_text_transform_option','inherit');
-		$ChaSheng_body_font_style_option	 	= get_theme_mod('ChaSheng_body_font_style_option','inherit');
-		$ChaSheng_body_txt_decoration_option	 	= get_theme_mod('ChaSheng_body_txt_decoration_option','none');
+		$ChiaSheng_body_font_weight_option	 	= get_theme_mod('ChiaSheng_body_font_weight_option','inherit');
+		$ChiaSheng_body_text_transform_option	 	= get_theme_mod('ChiaSheng_body_text_transform_option','inherit');
+		$ChiaSheng_body_font_style_option	 	= get_theme_mod('ChiaSheng_body_font_style_option','inherit');
+		$ChiaSheng_body_txt_decoration_option	 	= get_theme_mod('ChiaSheng_body_txt_decoration_option','none');
 
-		$ChaSheng_print_style   .= ChaSheng_customizer_value( 'ChaSheng_body_font_size_option', 'body', array( 'font-size' ), array( 16, 16, 16 ), 'px' );
-		$ChaSheng_print_style   .= ChaSheng_customizer_value( 'ChaSheng_body_line_height_option', 'body', array( 'line-height' ), array( 1.6, 1.6, 1.6 ) );
-		$ChaSheng_print_style   .= ChaSheng_customizer_value( 'ChaSheng_body_ltr_space_option', 'body', array( 'letter-spacing' ), array( 0, 0, 0 ), 'px' );	 
+		$ChiaSheng_print_style   .= ChiaSheng_customizer_value( 'ChiaSheng_body_font_size_option', 'body', array( 'font-size' ), array( 16, 16, 16 ), 'px' );
+		$ChiaSheng_print_style   .= ChiaSheng_customizer_value( 'ChiaSheng_body_line_height_option', 'body', array( 'line-height' ), array( 1.6, 1.6, 1.6 ) );
+		$ChiaSheng_print_style   .= ChiaSheng_customizer_value( 'ChiaSheng_body_ltr_space_option', 'body', array( 'letter-spacing' ), array( 0, 0, 0 ), 'px' );	 
 
 		/**
 		 *  Typography Heading
 		 */
 		for ( $i = 1; $i <= 6; $i++ ) {
-			$ChaSheng_heading_font_weight_option	 	= get_theme_mod('ChaSheng_h' . $i . '_font_weight_option','700');
-			$ChaSheng_heading_text_transform_option 	= get_theme_mod('ChaSheng_h' . $i . '_text_transform_option','inherit');
-			$ChaSheng_heading_font_style_option	 	= get_theme_mod('ChaSheng_h' . $i . '_font_style_option','inherit');
-			$ChaSheng_heading_txt_decoration_option	= get_theme_mod('ChaSheng_h' . $i . '_txt_decoration_option','inherit');
+			$ChiaSheng_heading_font_weight_option	 	= get_theme_mod('ChiaSheng_h' . $i . '_font_weight_option','700');
+			$ChiaSheng_heading_text_transform_option 	= get_theme_mod('ChiaSheng_h' . $i . '_text_transform_option','inherit');
+			$ChiaSheng_heading_font_style_option	 	= get_theme_mod('ChiaSheng_h' . $i . '_font_style_option','inherit');
+			$ChiaSheng_heading_txt_decoration_option	= get_theme_mod('ChiaSheng_h' . $i . '_txt_decoration_option','inherit');
 
-			$ChaSheng_print_style   .= ChaSheng_customizer_value( 'ChaSheng_h' . $i . '_font_size_option', 'h' . $i .'', array( 'font-size' ), array( 36, 36, 36 ), 'px' );
-			$ChaSheng_print_style   .= ChaSheng_customizer_value( 'ChaSheng_h' . $i . '_line_height_option', 'h' . $i . '', array( 'line-height' ), array( 1.2, 1.2, 1.2 ) );
-			$ChaSheng_print_style   .=ChaSheng_customizer_value( 'hdr_site_desc_size', '.site--logo .site--description', array( 'font-size' ), array( 16, 16, 16 ), 'px !important' );
+			$ChiaSheng_print_style   .= ChiaSheng_customizer_value( 'ChiaSheng_h' . $i . '_font_size_option', 'h' . $i .'', array( 'font-size' ), array( 36, 36, 36 ), 'px' );
+			$ChiaSheng_print_style   .= ChiaSheng_customizer_value( 'ChiaSheng_h' . $i . '_line_height_option', 'h' . $i . '', array( 'line-height' ), array( 1.2, 1.2, 1.2 ) );
+			$ChiaSheng_print_style   .=ChiaSheng_customizer_value( 'hdr_site_desc_size', '.site--logo .site--description', array( 'font-size' ), array( 16, 16, 16 ), 'px !important' );
         }
 
         $ChiaSheng_hs_latest_post_format_icon			= get_theme_mod('ChiaSheng_hs_latest_post_format_icon','1');
@@ -293,8 +293,7 @@ define( 'CHIASHENG_THEME_INC_URI', CHIASHENG_THEME_URI . '/inc');
 /**
  * Implement the Custom Header feature.
  */
-require_once get_template_directory() . '/inc/custom-header.php';
-
+require_once get_template_directory() . '/inc/patterns/header_default.php';
 /**
  * Custom template tags for this theme.
  */
@@ -310,21 +309,22 @@ require_once get_template_directory() . '/inc/extras.php';
 /**
  * Nav Walker for Bootstrap Dropdown Menu.
  */
+
 require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 
 /**
  * Widget
  */
-require( get_template_directory() . '/inc/widgets/widgets-init.php');
+require get_template_directory() . '/inc/widgets/widgets-init.php';
+
 
 /**
  * Control Style
  */
-
-require ChiaSheng_THEME_INC_DIR . '/customizer/controls/code/control-function/style-functions.php';
+require_once CHIASHENG_THEME_INC_DIR . '/style-functions.php';
 
 
 /**
  * Getting Started
  */
-require ChiaSheng_THEME_INC_DIR . '/admin/getting-started.php';
+require CHIASHENG_THEME_INC_DIR . '/admin/getting-started.php';
