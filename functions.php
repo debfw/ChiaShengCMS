@@ -381,8 +381,8 @@ require_once get_template_directory() . '/inc/extras.php';
 /**
  * Customizer additions.
  */
- require_once get_template_directory() . '/inc/customizer/ChiaSheng-customizer.php';
- require get_template_directory() . '/inc/customizer/controls/code/customizer-repeater/inc/customizer.php';
+ require_once get_template_directory() . '/inc/ChiaSheng-customizer.php';
+ require get_template_directory() . '/inc/customizer.php';
  
 /**
  * Nav Walker for Bootstrap Dropdown Menu.
@@ -392,7 +392,7 @@ require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 /**
  * Widget
  */
-require( get_template_directory() . '/inc/widgets/widgets-init.php');
+require( get_template_directory() . '/inc/widgets-init.php');
 
 /**
  * Control Style

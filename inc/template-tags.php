@@ -45,3 +45,11 @@ function ChiaSheng_theme_page_header_title()
     }
 }
 
+/**
+ * Theme Breadcrumbs Url
+*/
+
+/**
+ * Theme Breadcrumbs
+ * Excerpt Read More //yoast_breadcrumb
+*/
