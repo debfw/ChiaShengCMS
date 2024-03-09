@@ -74,11 +74,7 @@ defined( 'ABSPATH' ) || exit;
 		// Include customizer settings.
 		public function chiaSheng_customizer_settings() {	
 			  // Recommended Plugin
-			  require CHIASHENG_THEME_INC_DIR . '/customizer/customizer-plugin-notice/chiaSheng-notify-plugin.php';
-			
-			  // Upsale
-			  require CHIASHENG_THEME_INC_DIR . '/customizer/controls/code/upgrade/class-customize.php';
-			
+			  require CHIASHENG_THEME_INC_DIR . '/customizer/chiaSheng-notify-plugin.php';			
 			  $chiaSheng_customize_dir =  CHIASHENG_THEME_INC_DIR . '/customizer/customizer-settings';
 			  require $chiaSheng_customize_dir . '/chiaSheng-header-customize-setting.php';
 			  require $chiaSheng_customize_dir . '/chiaSheng-footer-customize-setting.php';
